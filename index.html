@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMBUTAN BULAN KEBANGSAAN SriSePS 2026</title>
+    <style>
+        :root {
+            --primary-color: #003399; /* Royal Blue */
+            --accent-color: #cc0000;  /* Red */
+            --yellow-color: #ffcc00;  /* Gold/Yellow */
+            --bg-color: #f0f4f9;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(204, 0, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 51, 153, 0.05) 0%, transparent 20%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5l2.5 7.5H40l-6 4.5 2.5 7.5-6.5-5-6.5 5 2.5-7.5-6-4.5h7.5z' fill='%23ffcc00' fill-opacity='0.12'/%3E%3C/svg%3E");
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Header Utama */
+        header {
+            background: linear-gradient(135deg, #002266 0%, #003399 50%, #800000 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2.5rem 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-bottom: 6px solid var(--yellow-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Jalur Bendera Hiasan Top Header */
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                #cc0000,
+                #cc0000 20px,
+                #ffffff 20px,
+                #ffffff 40px,
+                #003399 40px,
+                #003399 60px,
+                #ffcc00 60px,
+                #ffcc00 80px
+            );
+        }
+
+        /* Logo Sekolah Top-Left Styling */
+        .school-logo {
+            position: absolute;
+            top: 15px;
+            left: 25px;
+            max-height: 95px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.35));
+            image-rendering: -webkit-optimize-contrast;
+            transition: transform 0.3s ease;
+            z-index: 10;
+        }
+
+        .school-logo:hover {
+            transform: scale(1.06);
+        }
+
+        .header-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .star-icon {
+            font-size: 1.8rem;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        header p {
+            font-size: 1.05rem;
+            max-width: 850px;
+            margin: 0.8rem auto 0 auto;
+            opacity: 0.95;
+            line-height: 1.5;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 10px 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            display: block;
+            width: fit-content;
+        }
+
+        header p.instruction {
+            font-size: 0.98rem;
+            background: rgba(255, 204, 0, 0.15);
+            border: 1px dashed rgba(255, 204, 0, 0.5);
+            margin-top: 0.6rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            flex: 1;
+        }
+
+        /* Buttons Kategori */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 15px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn-filter {
+            background-color: white;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .btn-filter:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,51,153,0.3);
+        }
+
+        .btn-filter.active {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 12px rgba(204, 0, 0, 0.4);
+        }
+
+        /* Poster Grid Layout */
+        .poster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .poster-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #e1e8f0;
+            position: relative;
+        }
+
+        .poster-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), var(--yellow-color), var(--primary-color));
+            z-index: 2;
+        }
+
+        .poster-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+            border-color: var(--yellow-color);
+        }
+
+        .poster-image-container {
+            width: 100%;
+            height: 360px;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .poster-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .poster-info {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            background: linear-gradient(to bottom, #ffffff, #fcfcfc);
+        }
+
+        .badge-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .badge-category {
+            background-color: var(--yellow-color);
+            color: #000;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .badge-merdeka {
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        .poster-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .poster-desc {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 1.2rem;
+            flex-grow: 1;
+            line-height: 1.4;
+        }
+
+        /* Container Butang */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-download {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--primary-color), #002266);
+            color: white;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 51, 153, 0.2);
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, var(--accent-color), #990000);
+            box-shadow: 0 4px 12px rgba(204, 0, 0, 0.4);
+        }
+
+        /* Styling Butang Kertas Konsep */
+        .btn-kertas-konsep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--yellow-color), #e6b800);
+            color: #111;
+            text-decoration: none;
+            padding: 11px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 204, 0, 0.3);
+        }
+
+        .btn-kertas-konsep:hover {
+            background: linear-gradient(135deg, var(--accent-color), #990000);
+            color: white;
+            box-shadow: 0 4px 12px rgba(204, 0, 0, 0.4);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #111111, #1a1a2e);
+            color: #e0e0e0;
+            text-align: center;
+            padding: 1.8rem 1rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            border-top: 4px solid var(--accent-color);
+            position: relative;
+        }
+
+        footer p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Responsiveness for Mobile Screens */
+        @media (max-width: 768px) {
+            .school-logo {
+                position: static;
+                display: block;
+                margin: 0 auto 15px auto;
+                max-height: 85px;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .btn-filter {
+                padding: 8px 14px;
+                font-size: 0.85rem;
+            }
+
+            .filter-container {
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Logo Sekolah SriSePS -->
+        <img src="https://lh3.googleusercontent.com/d/1T7fqYZb7LKVU3nB1sUio46MddxI007uQ" alt="Logo Sekolah SriSePS" class="school-logo">
+
+        <div class="header-title-container">
+            <span class="star-icon">✨</span>
+            <h1>SAMBUTAN BULAN KEBANGSAAN SriSePS 2026</h1>
+            <span class="star-icon">✨</span>
+        </div>
+        <p>Sempena Sambutan Bulan Kebangsaan Peringkat Sekolah, pelbagai pertandingan menarik dianjurkan bagi memeriahkan sambutan sebagai inisiatif pihak sekolah untuk menyemarakkan semangat patriotisme dalam kalangan murid SK Bandar Sri Sendayan.</p>
+        <p class="instruction">Sila pilih kategori tahun anak anda untuk melihat dan memuat turun poster pertandingan yang dianjurkan.</p>
+    </header>
+
+    <div class="container">
+        <!-- Category Buttons -->
+        <div class="filter-container">
+            <button class="btn-filter active" onclick="filterCategory('TAHUN 1')">TAHUN 1</button>
+            <button class="btn-filter" onclick="filterCategory('TAHUN 2')">TAHUN 2</button>
+            <button class="btn-filter" onclick="filterCategory('TAHUN 3')">TAHUN 3</button>
+            <button class="btn-filter" onclick="filterCategory('TAHUN 4')">TAHUN 4</button>
+            <button class="btn-filter" onclick="filterCategory('TAHUN 5')">TAHUN 5</button>
+            <button class="btn-filter" onclick="filterCategory('TAHUN 6')">TAHUN 6</button>
+            <button class="btn-filter" onclick="filterCategory('PPKI')">PPKI</button>
+            <button class="btn-filter" onclick="filterCategory('PRA SEKOLAH')">PRA SEKOLAH</button>
+        </div>
+
+        <!-- Poster Grid -->
+        <div class="poster-grid" id="posterGrid">
+            <!-- Dynamic Content -->
+        </div>
+    </div>
+
+    <footer>
+        <p><span>⭐</span> SriSePS Become Stronger. Disediakan oleh Cikgu Theno. <span>⭐</span></p>
+    </footer>
+
+    <script>
+        const driveLinks = {
+            "TAHUN 1": [
+                "10Ro-VS-LelYu4T-SxzcRbN5MsZN5kG5C",
+                "1QL0bNWXrxncsG1z-1F58PgTSUplU9f8E",
+                "1MuM96ruNIzSXF8ZEe-AZbW1ADB74nAqI",
+                "1UIRe-hZxX_tJ1ZB6UifDtZUwL8oFGdnJ",
+                "12rXhO3n_xPTQ9Cdb2jnJtHHKbup50-Ov",
+                "1oGLgAGoNh3Fyi3muMKUftLcH-aAMSLW-",
+                "10hJRJS8UB_fxIKv_bwztSckdVzaigSp-",
+                "1C98Y6jmj3KINd_4DP09Wi3AQAoirc1Wh"
+            ],
+            "TAHUN 2": [
+                "10Ro-VS-LelYu4T-SxzcRbN5MsZN5kG5C",
+                "1QL0bNWXrxncsG1z-1F58PgTSUplU9f8E",
+                "1MuM96ruNIzSXF8ZEe-AZbW1ADB74nAqI",
+                "1UIRe-hZxX_tJ1ZB6UifDtZUwL8oFGdnJ",
+                "12rXhO3n_xPTQ9Cdb2jnJtHHKbup50-Ov",
+                "1oGLgAGoNh3Fyi3muMKUftLcH-aAMSLW-",
+                "1bSwV51sbU0jM1XCt4fVMzCNpy6lYWcBx",
+                "1C98Y6jmj3KINd_4DP09Wi3AQAoirc1Wh"
+            ],
+            "TAHUN 3": [
+                "10Ro-VS-LelYu4T-SxzcRbN5MsZN5kG5C",
+                "1QL0bNWXrxncsG1z-1F58PgTSUplU9f8E",
+                "1MuM96ruNIzSXF8ZEe-AZbW1ADB74nAqI",
+                "1UIRe-hZxX_tJ1ZB6UifDtZUwL8oFGdnJ",
+                "12rXhO3n_xPTQ9Cdb2jnJtHHKbup50-Ov",
+                "1oGLgAGoNh3Fyi3muMKUftLcH-aAMSLW-",
+                "1S5hzOCY6g8ywWzGt6w78_yXhub9BQWYk",
+                "1C98Y6jmj3KINd_4DP09Wi3AQAoirc1Wh"
+            ],
+            "TAHUN 4": [
+                "10Ro-VS-LelYu4T-SxzcRbN5MsZN5kG5C",
+                "1QL0bNWXrxncsG1z-1F58PgTSUplU9f8E",
+                "1MuM96ruNIzSXF8ZEe-AZbW1ADB74nAqI",
+                "12rXhO3n_xPTQ9Cdb2jnJtHHKbup50-Ov",
+                "1LDNUCi8Hym6O9NL17JHFpMc3ue3Z9CmA",
+                "1BN1cy3kls-RQso4TL5XTsLuvfdF5-8Tz",
+                "1kbLk60ZSHbtiozw-7aBtLFu7BjWW5Kn_",
+                "1ijbZX2BkdWzCuZ-0fxztUaniULo1MPXF",
+                "1C98Y6jmj3KINd_4DP09Wi3AQAoirc1Wh"
+            ],
+            "TAHUN 5": [
+                "10Ro-VS-LelYu4T-SxzcRbN5MsZN5kG5C",
+                "1QL0bNWXrxncsG1z-1F58PgTSUplU9f8E",
+                "1MuM96ruNIzSXF8ZEe-AZbW1ADB74nAqI",
+                "12rXhO3n_xPTQ9Cdb2jnJtHHKbup50-Ov",
+                "1LDNUCi8Hym6O9NL17JHFpMc3ue3Z9CmA",
+                "1BN1cy3kls-RQso4TL5XTsLuvfdF5-8Tz",
+                "1kbLk60ZSHbtiozw-7aBtLFu7BjWW5Kn_",
+                "1fMhL40vFqlBPSUDn50PN1_e6A86nlwl4",
+                "1C98Y6jmj3KINd_4DP09Wi3AQAoirc1Wh"
+            ],
+            "TAHUN 6": [
+                "10Ro-VS-LelYu4T-SxzcRbN5MsZN5kG5C",
+                "1QL0bNWXrxncsG1z-1F58PgTSUplU9f8E",
+                "1MuM96ruNIzSXF8ZEe-AZbW1ADB74nAqI",
+                "12rXhO3n_xPTQ9Cdb2jnJtHHKbup50-Ov",
+                "1LDNUCi8Hym6O9NL17JHFpMc3ue3Z9CmA",
+                "1BN1cy3kls-RQso4TL5XTsLuvfdF5-8Tz",
+                "1kbLk60ZSHbtiozw-7aBtLFu7BjWW5Kn_",
+                "1dZnPhGdbxpbyYsmYpTHKpI2PlqoV5tXa",
+                "1C98Y6jmj3KINd_4DP09Wi3AQAoirc1Wh"
+            ],
+            "PPKI": [
+                "14D02eOId64Imv2SrZYgsRfpDCyfZ1ipH"
+            ],
+            "PRA SEKOLAH": [
+                "1S9WKtowp1rWDmIiYlNzNxJDYY1BSHO88",
+                "1c0REX8xHLcxKdakXQnCm6XnnIuOvwGE_"
+            ]
+        };
+
+        // Pemetaan Pautan Kertas Konsep mengikut ID Poster
+        const kertasKonsepMap = {
+            "1oGLgAGoNh3Fyi3muMKUftLcH-aAMSLW-": "https://drive.google.com/file/d/1IPlZkWDImQHx93jNFOnjwtSeGLAAOXcs/view?usp=sharing",
+            "1kbLk60ZSHbtiozw-7aBtLFu7BjWW5Kn_": "https://drive.google.com/file/d/1UWRdUlIgACD2p_EkZeXImIvaCLa5MaTo/view?usp=sharing"
+        };
+
+        function renderPosters(category) {
+            const grid = document.getElementById('posterGrid');
+            grid.innerHTML = '';
+
+            const ids = driveLinks[category] || [];
+
+            if (ids.length === 0) {
+                grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #777; font-size: 1.1rem; padding: 2rem;">Tiada poster dijumpai untuk kategori ini.</p>`;
+                return;
+            }
+
+            ids.forEach((id, index) => {
+                const card = document.createElement('div');
+                card.className = 'poster-card';
+                
+                const imageUrl = `https://lh3.googleusercontent.com/d/${id}`;
+                const downloadUrl = `https://drive.google.com/file/d/${id}/view`;
+                
+                // Semak jika poster ini mempunyai pautan Kertas Konsep
+                const conceptUrl = kertasKonsepMap[id];
+                let conceptButtonHtml = '';
+                
+                if (conceptUrl) {
+                    conceptButtonHtml = `
+                        <a href="${conceptUrl}" target="_blank" class="btn-kertas-konsep">
+                            <span>📄 Kertas Konsep</span> 📥
+                        </a>
+                    `;
+                }
+
+                card.innerHTML = `
+                    <div class="poster-image-container">
+                        <img src="${imageUrl}" alt="Poster ${category} - ${index + 1}" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x400/003399/ffffff?text=Poster+${index+1}';">
+                    </div>
+                    <div class="poster-info">
+                        <div class="badge-container">
+                            <span class="badge-category">${category}</span>
+                            <span class="badge-merdeka">✨ Merdeka 2026</span>
+                        </div>
+                        <h3 class="poster-title">Poster Pertandingan ${index + 1}</h3>
+                        <p class="poster-desc">Klik butang di bawah untuk melihat dan memuat turun poster penuh bagi ${category}.</p>
+                        <div class="button-group">
+                            <a href="${downloadUrl}" target="_blank" class="btn-download">
+                                <span>Lihat / Muat Turun Poster</span> 📥
+                            </a>
+                            ${conceptButtonHtml}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(category) {
+            const buttons = document.querySelectorAll('.btn-filter');
+            buttons.forEach(btn => {
+                if (btn.innerText.trim() === category) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            renderPosters(category);
+        }
+
+        window.onload = () => {
+            filterCategory('TAHUN 1');
+        };
+    </script>
+</body>
+</html>
